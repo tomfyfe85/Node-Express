@@ -1,6 +1,10 @@
-function log(msg) {
-  console.log("hiiii");
+const EventEmitter = require("events");
+
+class Logger extends EventEmitter {
+  log(msg) {
+    console.log(msg);
+    this.emit("logging", { data: msg });
+  }
 }
 
-module.exports.log = log;
-console.log(module);
+module.exports = Logger;

@@ -1,7 +1,9 @@
-var logger = require("./logger");
+const Logger = require("./logger");
 
-function hello(name) {
-  return "Hello " + name;
-}
+const logger = new Logger();
 
-console.log(logger.log("hiii"));
+logger.on("logging", (e) => {
+  console.log("listener called", e);
+});
+
+logger.log("message");
